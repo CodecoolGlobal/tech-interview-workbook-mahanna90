@@ -438,15 +438,58 @@ what was good, what was bad, and what steps each member can take to improve the 
 ### Unix
 
 #### What is UNIX and what is Linux?
+Both of them are operating systems, but UNIX was earlier, it is running in CLI(Command Line Interface, meaning there is "only a command line, no mouse or graphical elements, at all)
+Linux (based on unix) is one or more steps forward, it enables applications and the users to access the devices on the computer to perform some specific function.
 
+Usage:
+*Unix:* The UNIX can be used in internet servers, workstations, and PCs.
+*Linux:* Everyone for home PC use as well. Linux OS can be installed on various types of devices like mobile, tablet computers.
 
 #### What do we call the shell in Linux?
-#### What does root means in a Linux environment?
+The shell is the *command interpreter* in an operating system such Linux, it is a program that executes other programs. It provides a computer user an interface to the Unix/GNU Linux system so that the user can run different commands or utilities/tools with some input data (then executed by the operating system).
+
+#### What does root mean in a Linux environment?
+"root" is the user name or account that by default has access to all commands and files on a Linux or other Unix-like operating system. 
+Basically the Windows "System Administrator" equivalent for Linux.
+
 #### How do you access your personal files in Linux?
+"cd home/\<username>" in terminal 
+
 #### How can you install an application in Linux?
+You can use the software center, or you can use Linux package managers' commands, to install an application in the terminal.
+command: apt install \<name_of_application>, or sudo apt install \<name_of_application> for admin install
+
 #### What is package management in Linux, what are repositories?
+Package managers are collections of software tools that manage the applications users can install, update, or delete. 
+The most well known ones are: DPKG, APT, RPM, YUM
+
 #### How do you navigate in the filesystem with the command line?
+1. **pwd:** find your “present working directory”
+2. **ls:** list the files in your current directory
+3. **cd:** change your current directory
+    1. *To navigate into the root directory, use* **cd /**
+    2. *To navigate to your home directory, use* **cd** *or* **cd\~**
+    3. *To navigate up one directory level, use* **cd ..**
+    4. *To navigate to the previous directory (or back),* use **cd -**
+
 #### What does the following commands do: mkdir, rm, cat, cp, touch?
+1. **mkdir:** Make directory
+2. **rm:** Remove files and directories (-rf -deletes folders aswell)
+3. **cat:** Concatenate files and print to stdout.
+4. **cp:** Copy files
+5. **touch:** Create a new file or update its timestamp.
+
 #### How can you look up what does a command do in Linux if you have no internet connection?
+commandname -help or commandname -h
+man commandname
+
 #### What does the following commands do: head, tail, more, less?
+1. **head:** displays the first *ten* lines of a file, unless otherwise stated.
+2. **tail:** display the last part of the file
+3. **more:** to view a text file one page at a time, press spacebar to go to the next page
+4. **less:** is much the same as more command
+
 #### How do you download a file from internet using the terminal?
+with wget:
+1. sudo apt-get install wget
+2. wget [URL]
