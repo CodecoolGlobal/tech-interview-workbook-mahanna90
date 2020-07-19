@@ -41,17 +41,61 @@ Fn = F(n−1) + F(n−2)
 def Fibonacci(n):
     if n<0:
         print("Incorrect input")
-    elif n==1:
+    elif n == 0:
         return 0
-    elif n==2:
+    elif n == 1:
         return 1
     else:
         return Fibonacci(n-1) + Fibonacci(n-2)
 ```
 #### How do you find a max value in a list/array if you can’t use any built-in functions?
+Iterate through the list once with a for cycle and check for each element if it is higher than the highest before. 
+If so, store the actual value in the max_value variable. In the end max_value will contain the max element.
+
+```Python
+def find_max():
+    num_list = [10, 9, 76, 3, -8]
+    max_value = -1000000
+    for item in num_list:
+        if item > max_value:
+            max_value = item
+    return max_value
+```
+
+*An alternative solution could be done by using the sort() method and getting the last element of the sorted list.*
+
 #### How do you find the average of values in a list/array if you can’t use any built-in functions?
+Iterate through the list/array once, while counting the number of elements by incrementing the count variable and adding each element's value to the sum_list variable.
+After the iteration is finished, we can divide the sum_list by the count and the result is the average value.
+
+```Python
+def find_average():
+    num_list = [10, 9, 76, 3, -8]
+    count = 0
+    sum_list = 0
+    for item in num_list:
+        count += 1
+        sum_list = sum_list  + item
+    avg = sum_list/count
+    return avg
+```
 #### What do we call an *in-place* sort?
+Sorting a list without assigning its sorted outcome to any other variable. This only modifies the order of the elements within the list.
+
 #### Explain an algorithm which sorts a list!
+Bubble sort: The algorithm iterates through the list the number of times of the list's length. Each time it checks adjacent elements and if the next element is lower, it swaps them. This way it sorts the list into ascending order. 
+
+```Python
+def bubble_sort():
+    num_list = [10, 9, 76, 3, -8]
+    for i in range(len(num_list)):
+        for j in range(len(num_list) - i - 1):
+            if num_list[j] > num_list[j+1]:
+                temp = num_list[j]
+                num_list[j] = num_list[j+1]
+                num_list[j+1] = temp
+    return num_list
+```
 
 ### Programming paradigms - procedural
 
