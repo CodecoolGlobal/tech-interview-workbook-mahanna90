@@ -236,8 +236,8 @@ for j in range(3):
     mod.append( NumList1[j] % NumList2[j])
     expo.append( NumList1[j] ** NumList2[j])
 
-print("\The List Items after Merging = ", add_lists)
-print("\nThe List Items after Addition =  ", add)
+print("The List Items after Merging = ", add_lists)
+print("The List Items after Addition =  ", add)
 print("The List Items after Subtraction =  ", sub)
 print("The List Items after Multiplication =  ", multi)
 print("The List Items after Division =  ", div)
@@ -255,13 +255,74 @@ The List Items after Exponent =   [100000, 400, 27000]
 ```
 
 #### What is the purpose of the in and not in membership operators in Python?
+Membership operators are operators used to validate the membership of a value. It tests for membership in a sequence, such as strings, lists, or tuples.
+1. in operator: The ‘in’ operator is used to check if a value exists in a sequence or not. Evaluates to true if it finds a variable in the specified sequence and false otherwise.
+2. ‘not in’ operator: Evaluates to true if it does not find a variable in the specified sequence and false otherwise.
+
 #### What does the + operator mean when used with strings in Python?
+It concatenates the strings, for example: "spam" + "eggs" -> spameggs
+
 #### Explain f strings in Python?
+Also called “formatted string literals,” f-strings are string literals that have an f at the beginning and curly braces containing expressions that will be replaced with their values.
+
+Example:
+```Python
+answer = 456
+print(f"Your answer is "{answer}"")
+```
+
 #### Name 4 iterable types in Python!
+1. list
+2. string
+3. tuple
+4. dictionary
+
 #### What is the difference between list/set/dictionary comprehension and a generator expression in Python?
+1. *List Comprehension:*  It is an elegant and compressed way of defining and creating a list. List comprehension allows us to create a list using for loops in one line.
+```python
+  values = [ expression for value in collection <if condition> ]
+```
+
+```python
+  a_dict = {key: value  for key, value in zip(list1, list2) if clause}
+```
+
+2. *Generator Expressions:* Similar to list comprehensions, but instead of creating a list and keeping the whole sequence in the memory, the generator generates the next element in demand and allows us to create a generator without the yield keyword.
+
+```Python
+genexpr = ('Hello' for i in range(3))
+```
+
+*List Comprehension vs Generator Expressions:* 
+List comprehension returns a list [] Generator expression returns an object that can be iterated through ()
+The generator yields one item at a time and generates item only when in demand.
+In case of a list comprehension Python reserves memory for the whole list so we can say that generator expressions are more memory efficient than lists.
+
 #### Does the order of the function definitions matter in Python? Why?
+The order won't change the result of the program because the function calls matter, but it can help to understand the code more easily if it is ordered properly.
+
 #### What does unpacking mean in Python?
+Unpacking in Python refers to an operation that consists of assigning an iterable of values to a tuple (or list ) of variables in a single assignment statement. As a complement, the term packing can be used when we collect several values in a single variable using the iterable unpacking operator.
+
+For example if we want to give a list as argument to a function we can unpack the list with the "*" operator to give arguments by elements.
+*lists use "\*" for unpacking:* 
+```Python
+def fun(a,b,c,d):
+    print(a,b,c,d)
+my list=[1,2,3,4]
+fun(*my_list)
+```
+*dictionaries use "\*\*" for unpacking:* 
+```Python
+def fun(a, b, c): 
+    print(a, b, c) 
+d = {'a':2, 'b':4, 'c':10} 
+fun(**d) 
+```
+
 #### What happens when you try to assign the result of a function which has no return statement to a variable in Python?
+If there is no return statement the value None will be assigned to the variable and its type will become NoneType.
+
 
 ## Software engineering
 
