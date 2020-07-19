@@ -395,20 +395,51 @@ No duplications, no dead code, meaningful variable names, proper indentation, fu
 ### Error handling
 
 #### What is exception handling?
+Exceptions are used to handle possible errors occurring during the program execution. Exceptions can anticipate the error type (if it is given) and when the error occurs
+it will execute the coded lines inside the exception instead of crashing the program. 
+
 #### What are the basics of exception handling in Python?
+The error handling is done through the use of exceptions that are caught in try
+blocks and handled in except blocks. If an error is encountered, a try block
+code execution is stopped and transferred down to the except block.
+In addition to using an except block after the try block, you can also use the
+finally block. The code in the finally block will be executed regardless of whether an exception
+occurs.
+
+```Python
+age = input("What is your age? ")
+try:
+    age = int(age)
+except ValueError:
+    print("Invalid Input!")
+```
+
 #### In which case should we catch an exception? Why?
+Any time a specific error can be expected it is wise to use exceptions.
+For example: when user input is used and the input type is important, when we are looking for files which may not exist, 
+when we need to translate objects but it is not clear if it can be done, etc.
+
 #### What can/should we do with an exception in the ‘except’ block?
+Print an understandable error message or quit the program, if needed.
+
 #### What does the else and finally statement do in a try-except block in Python?
+*else block:* Will be executed only if the code inside the try block doesn’t generate an exception.
+*finally block:* Code is always executed, whether the program executed properly or it raised an exception.
 
 ## Software Development Methodologies
 
 #### What is the main goal of a retrospective meeting?
+The goal is to discuss among the team members how the work went during the last sprint, 
+what was good, what was bad, and what steps each member can take to improve the personal and team work.
+
 
 ## Programming environment
 
 ### Unix
 
 #### What is UNIX and what is Linux?
+
+
 #### What do we call the shell in Linux?
 #### What does root means in a Linux environment?
 #### How do you access your personal files in Linux?
