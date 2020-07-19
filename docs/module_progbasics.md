@@ -6,7 +6,7 @@
 
 #### What is the purpose of a list (array in some programming languages) data structure? Name some methods of it!
 
-The purpose of a list is to store different data types/values. 
+The purpose of a list is to store values in a sequence. 
 Lists are also useful data structures because they are iterable and mutable.
 
 Methods:
@@ -18,14 +18,36 @@ Methods:
 6. **index():** *Returns smallest index of item in list.* **list.index(item)**
 
 #### What is the difference between a list/array and a set?
-Lists/arrays are mutable, they can be changed after declaration, while sets are inmutable. Also lists can contain the same item multiple times while in sets every item can occur only once. 
-An empty list is declared as lst = [] while an empty set is declared as set = {}
+Lists/arrays can contain the same element multiple times while in sets every element can occur only once. Sets are unordered and elements don't have indices while list elements are indexed. An empty list is declared as lst = [] while an empty set is declared as set = {}
 
 #### What is the purpose and methods of a dictionary/map data structure?
+Dictionaries can store a collection of key-value pairs. Dictionaries are unordered, mutable and indexed. dict = {key1: value1, key2: value2, }
+They can be practical to store data by names or for taking inventory of items for example. 
+
+Methods:
+1. **dict():** *Creates a dictionary in Python.* **dict({key: value})**
+2. **get():** *Returns value based on key or None if it doesn't exist.* **dict.get(key)**
+3. **update():** * Much like append in lists. Adds several items to the dictionary once. Also can change already existing value.*
+4. **keys()** *Returns the keys of the dictionary.* **dict.keys()**
+5. **values()** *Returns the values of the dictionary.* **dict.values()**
+6. **items()** *Returns both the keys and values of the dictionary.* **dict.items()**
 
 ### Algorithms
 
 #### Fibonacci sequences. Write a method (or pseudo code), that generates the Fibonacci sequences.
+Fn = F(n−1) + F(n−2)
+
+```Python
+def Fibonacci(n):
+    if n<0:
+        print("Incorrect input")
+    elif n==1:
+        return 0
+    elif n==2:
+        return 1
+    else:
+        return Fibonacci(n-1) + Fibonacci(n-2)
+```
 #### How do you find a max value in a list/array if you can’t use any built-in functions?
 #### How do you find the average of values in a list/array if you can’t use any built-in functions?
 #### What do we call an *in-place* sort?
