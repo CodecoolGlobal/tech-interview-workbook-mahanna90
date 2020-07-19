@@ -110,7 +110,7 @@ Stack owerflow is an error which occurs when a program attempts to use more spac
 #### What are the main parts of a function?
 ```Python
 def function_name(parameter1, parameter2): # function definition name and parameters
-    multiply = arg1+ arg2 # function body describing the routine
+    multiply = parameter1 * parameter2 # function body describing the routine
     return multiply # return value
 
 function_name(argument1, argument2) # calling the function with arguments
@@ -118,13 +118,90 @@ function_name(argument1, argument2) # calling the function with arguments
 
 ### Programming languages - Python  
 #### How do you use a dictionary in Python?
+Dictionaries contain key-value pairs, are unordered, mutable and indexed.
+
+```Python
+#declaring a dictionary
+dictionary = {'a': 2, 'b': 3, 'c': 4} # key-value pairs
+#printing the dictdictionary
+print(dictionary)
+#getting the value of a key and store it
+x = dictionary.get('a')
+# variable x becomes equal to 2
+```
+
+other methods:
+1. **update():** * Much like append in lists. Adds several items to the dictionary once. Also can change already existing value.*
+2. **keys()** *Returns the keys of the dictionary.* **dict.keys()**
+3. **values()** *Returns the values of the dictionary.* **dict.values()**
+4. **items()** *Returns both the keys and values of the dictionary.* **dict.items()**
+5. *Dictionaries can be sorted as well by key and by value as well (key=Lambda function is useful for this)*
+
 #### What does it mean that an object is immutable in Python?
+These are of in-built types like int, float, bool, string, unicode, tuple.
+An immutable object can't be changed after it is created.
+
 #### What is conditional expression in Python?
+Ternary operators also known as conditional expressions are operators that evaluate something based on a condition being true or false. 
+It simply allows to test a condition in a single line replacing the multiline if-else making the code compact.
+
+```Python
+a, b = 10, 20
+# Copy value of a in min if a < b else copy b 
+min = a if a < b else b 
+```
+or
+
+```Python
+# Python program to demonstrate nested ternary operator 
+a, b = 10, 20
+if a != b: 
+    if a > b: 
+        print("a is greater than b") 
+    else: 
+        print("b is greater than a") 
+else: 
+    print("Both a and b are equal") 
+```
+
 #### What are different types of arguments in Python?
+1. **Default Arguments:** *def sum(a=4, b=2):*
+2. **Keyword Arguments:** *def print_name(name1, name2): print_name(name2 = 'John', name1 = 'Gary')*
+3. **Variable-length Arguments:** *def display(\*name, \*\*address): display('john','Mary','Nina',John='LA',Mary='NY',Nina='DC')*
+
 #### What is variable shadowing? (context: variable scope)
+In computer programming, variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. At the level of identifiers (names, rather than variables), this is known as name masking.
+This outer variable is said to be shadowed by the inner variable, while the inner identifier is said to mask the outer identifier. This can lead to confusion, as it may be unclear which variable subsequent uses of the shadowed variable name refer to.
+
 #### What can happen if you try to delete/drop/add an item from a List, while you are iterating over it in Python?
+Usually **IndexError: list index out of range** would occur, but there are exceptions. 
+For example the while loop below can be run without the error. 
+```Python
+i = 0
+while i < len(lst):
+    if lst[i] == 1:
+        del lst[i]
+    else:
+        i += 1
+```
+Normally modifying the data structure makes the iteration invalid because the length and indices change. 
+*Error may not occur in the following cases either:*
+1. Deleting an item from the list: the for loop will skip some elements, because we changed the list(indexing).
+2. Adding an item to the list: the for loop will run forever.
+
 #### What is the "golden rule" of variable scoping in Python (context: LEGB)? What is the lifetime of variables?
+Scope: the part of a program where a variable is accessible.
+In Python the LEGB rule is used to decide the order in which the namespaces are to be searched for scope resolution.
+
+**Four different scopes (LEGB): local, enclosing, global, and built-in (in hierarchical order)**
+1. **Local:** Defined variable within a function, its scope lies only within the function. It is accessible from the point at which it is defined until the end of the function and exists for as long as the function is executing.
+2. **Enclosing:** Defined inside enclosing functions(Nested functions' inner parts)
+3. **Global:** Whenever a variable is defined outside any function, it becomes a global variable, and its scope is anywhere within the program. 
+4. **Built-in:** All the special reserved keywords fall under this scope. We can call the keywords anywhere within our program without having to define them before use.
+
 #### If you need to access the iterator variable after a for loop, how would you do it in Python?
+
+
 #### What type of elements can a list contain in Python?
 #### What is slice operator in Python and how to use?
 #### What arithmetic operators (+,*,-,/) can be used on lists in Python? What do they do?
