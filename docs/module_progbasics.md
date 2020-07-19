@@ -18,6 +18,9 @@ Methods:
 6. **index():** *Returns smallest index of item in list.* **list.index(item)**
 
 #### What is the difference between a list/array and a set?
+Lists/arrays are mutable, they can be changed after declaration, while sets are inmutable. Also lists can contain the same item multiple times while in sets every item can occur only once. 
+An empty list is declared as lst = [] while an empty set is declared as set = {}
+
 #### What is the purpose and methods of a dictionary/map data structure?
 
 ### Algorithms
