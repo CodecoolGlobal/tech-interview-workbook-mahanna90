@@ -193,18 +193,67 @@ Normally modifying the data structure makes the iteration invalid because the le
 Scope: the part of a program where a variable is accessible.
 In Python the LEGB rule is used to decide the order in which the namespaces are to be searched for scope resolution.
 
-**Four different scopes (LEGB): local, enclosing, global, and built-in (in hierarchical order)**
+*Four different scopes (LEGB): local, enclosing, global, and built-in (in hierarchical order)*
 1. **Local:** Defined variable within a function, its scope lies only within the function. It is accessible from the point at which it is defined until the end of the function and exists for as long as the function is executing.
 2. **Enclosing:** Defined inside enclosing functions(Nested functions' inner parts)
 3. **Global:** Whenever a variable is defined outside any function, it becomes a global variable, and its scope is anywhere within the program. 
 4. **Built-in:** All the special reserved keywords fall under this scope. We can call the keywords anywhere within our program without having to define them before use.
 
 #### If you need to access the iterator variable after a for loop, how would you do it in Python?
-
+You can assign it to another variable inside the foor loop and the new variable can be used afterwards outside the for loop.
 
 #### What type of elements can a list contain in Python?
+Each item in a python list can be of any data type.
+For example: Boolean, string, float, integer, lists, dict, tuple
+
 #### What is slice operator in Python and how to use?
+A slicing can be done with the slice() function or with list slicing.
+The slice() function returns a part (slice) of an object.
+```Python
+a[start:stop:step] # list slicing
+a[slice(start, stop, step)] # slice function
+```
+
 #### What arithmetic operators (+,*,-,/) can be used on lists in Python? What do they do?
+```Python
+NumList1 = [10, 20, 30]
+NumList2 = [5, 2, 3]
+add_lists = []
+add = []
+sub = []
+multi = []
+div = []
+mod = []
+expo = []
+
+add_lists = NumList1 + NumList2
+
+for j in range(3):
+    add.append( NumList1[j] + NumList2[j])
+    sub.append( NumList1[j] - NumList2[j])
+    multi.append( NumList1[j] * NumList2[j])
+    div.append( NumList1[j] / NumList2[j])
+    mod.append( NumList1[j] % NumList2[j])
+    expo.append( NumList1[j] ** NumList2[j])
+
+print("\The List Items after Merging = ", add_lists)
+print("\nThe List Items after Addition =  ", add)
+print("The List Items after Subtraction =  ", sub)
+print("The List Items after Multiplication =  ", multi)
+print("The List Items after Division =  ", div)
+print("The List Items after Modulus =  ", mod)
+print("The List Items after Exponent =  ", expo)
+
+output:
+The List Items after Merging =   [10, 20, 30, 5, 2, 3]
+The List Items after Addition =   [15, 22, 33]
+The List Items after Subtraction =   [5, 18, 27]
+The List Items after Multiplication =   [50, 40, 90]
+The List Items after Division =   [2.0, 10.0, 10.0]
+The List Items after Modulus =   [0, 0, 0]
+The List Items after Exponent =   [100000, 400, 27000]
+```
+
 #### What is the purpose of the in and not in membership operators in Python?
 #### What does the + operator mean when used with strings in Python?
 #### Explain f strings in Python?
