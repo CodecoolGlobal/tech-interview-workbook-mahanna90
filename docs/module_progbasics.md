@@ -329,18 +329,52 @@ If there is no return statement the value None will be assigned to the variable 
 ### Debugging
 
 #### What techniques can you use while debugging a program in Python?
+1. print
+2. debugger
+3. rubberduck
+
 #### What does step over, step into and step out mean while using the debugger?
+1. **step  over:**  to skip certain functions (meaning it doesn't show it step by step)
+2. **step into:** it allows to walk through the program step by step, and checks the functions as well line by line
+3. **step out:** to step out the specific function
+
 #### How can you start to debug a program from a certain line using the debugger?
+1. Create breakpoint on desired line
+2. Run the debugger
 
 ### Version control
 
 #### What are the advantages of using a version control system?
+1. Collaboration
+2. Storing versions (Properly)
+3. Restoring previous versions
+4. Understanding what happened (commits)
+5. Backup
+
 #### What is the difference between the working directory, the staging area and the repository in git?
+working directory: the directory where you are working on your computer (which is checked by git if the repository is created)
+staging area: where the added changes can be checked before they are commited (they can be still deleted from staging)
+git repository: storage of commited changes, which can be restored or merged later if needed (can be pushed to github)
+
 #### What are remote repositories in git?
+The remote repository is an online storage of the git repositories. 
+It can be used to share code with colleagues by git push/pull commands and to manage multiple branches and merges between the versions. 
+
 #### Why does a merge conflict occur?
+A conflict arises when two separate branches have made edits to the same line in a file, or when a file has been deleted in one branch but edited in the other.
+
 #### Through what series of commands could you put a new file into a remote repository connected to your existing local repository?
+1. *mv* - move file to that repo or create file with *touch <filename>*
+2. *git add <filename>* - add file to staging
+3. *git commit -m "commit message"* - create a commit with an appropriate message and add it to the local repo
+4. *git push* - push the changes/commits to the remote repository (github)
+
 #### What does it mean atomic commits and descriptive commit messages?
+Atomic commit means every commit pertains to one fix or feature.
+Descriptive commit means the purpose of the commit is clear from commit messages and description.
+
 #### What’s the difference between git and GitHub?
+Git is a distributed **version control tool** that can manage a development project's source code history, while GitHub is a **cloud based platform** built around the Git tool.
 
 ## Software design
 
