@@ -80,7 +80,7 @@ def find_average():
     return avg
 ```
 #### What do we call an *in-place* sort?
-Sorting a list without assigning its sorted outcome to any other variable. This only modifies the order of the elements within the list.
+Sorting a list without assigning its sorted outcome to any other variable. This only modifies the order of the elements within the list, but does not create a new list.
 
 #### Explain an algorithm which sorts a list!
 Bubble sort: The algorithm iterates through the list the number of times of the list's length. Each time it checks adjacent elements and if the next element is lower, it swaps them. This way it sorts the list into ascending order. 
@@ -100,8 +100,21 @@ def bubble_sort():
 ### Programming paradigms - procedural
 
 #### What is the call stack?
+The call stack is a stack data structure that stores information about the active subroutines of a program. 
+It keeps track of the point to which each active subroutine (or method call) should return control when it finishes executing.
+Subroutines may be nested to any level (recursive as a special case), hence the stack structure.
+
 #### What is “Stack overflow”?
+Stack owerflow is an error which occurs when a program attempts to use more space than is available on the call stack.
+
 #### What are the main parts of a function?
+```Python
+def function_name(parameter1, parameter2): # function definition name and parameters
+    multiply = arg1+ arg2 # function body describing the routine
+    return multiply # return value
+
+function_name(argument1, argument2) # calling the function with arguments
+```
 
 ### Programming languages - Python  
 #### How do you use a dictionary in Python?
