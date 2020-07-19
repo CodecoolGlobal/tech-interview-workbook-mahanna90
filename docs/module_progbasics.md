@@ -381,7 +381,16 @@ Git is a distributed **version control tool** that can manage a development proj
 ### Clean code
 
 #### What does clean code mean?
+Code is clean if it can be understood easily, understandability comes readability, changeability, extensibility and maintainability.
+No duplications, no dead code, meaningful variable names, proper indentation, functional structure and no magic numbers.
+
 #### What steps do we usually do during a clean code refactoring?
+1. Fix bad naming
+2. Fix badly formatted code
+3. Clear repetitive code
+4. Refactor long methods
+5. Fix wrong comment usage
+6. Delete dead code
 
 ### Error handling
 
