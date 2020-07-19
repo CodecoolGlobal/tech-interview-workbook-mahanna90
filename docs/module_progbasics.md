@@ -5,6 +5,18 @@
 ### Data structures
 
 #### What is the purpose of a list (array in some programming languages) data structure? Name some methods of it!
+
+The purpose of a list is to store different data types/values. 
+Lists are also useful data structures because they are iterable and mutable.
+
+Methods:
+1. **len():** *Returns the length of a list (number of items in the list) as an integer* **len(list)**
+2. **append():** *Adds a single item to the end of the list.* **list.append(item)**
+3. **insert():** *Inserts item to the list.*- **list.insert(index, item)**
+4. **remove():** *Removes item from the list.* **list.remove(item)**
+5. **count():** *Counts an item in a list, returns an integer* **list.count(item)**
+6. **index():** *Returns smallest index of item in list.* **list.index(item)**
+
 #### What is the difference between a list/array and a set?
 #### What is the purpose and methods of a dictionary/map data structure?
 
