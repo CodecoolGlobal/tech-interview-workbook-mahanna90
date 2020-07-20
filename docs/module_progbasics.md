@@ -62,8 +62,6 @@ def find_max():
     return max_value
 ```
 
-*An alternative solution could be done by using the sort() method and getting the last element of the sorted list.*
-
 #### How do you find the average of values in a list/array if you can’t use any built-in functions?
 Iterate through the list/array once, while counting the number of elements by incrementing the count variable and adding each element's value to the sum_list variable.
 After the iteration is finished, we can divide the sum_list by the count and the result is the average value.
