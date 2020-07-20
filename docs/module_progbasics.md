@@ -37,6 +37,7 @@ Methods:
 #### Fibonacci sequences. Write a method (or pseudo code), that generates the Fibonacci sequences.
 Fn = F(n−1) + F(n−2)
 
+Fibonacci number outbut (only the #n number in the list):
 ```Python
 def Fibonacci(n):
     if n<0:
@@ -48,6 +49,20 @@ def Fibonacci(n):
     else:
         return Fibonacci(n-1) + Fibonacci(n-2)
 ```
+Fibonacci number list output:
+```Python
+def Fibonacci(n):
+    fibonacci_nums = [0, 1, ]
+    if n == 0:
+        fibonacci_nums = []
+    elif n == 1:
+        fibonacci_nums = [0, ]
+    else:
+        for i in range(2, n):
+            fibonacci_nums.append(fibonacci_nums[i-1] + fibonacci_nums[i-2])
+    return fibonacci_nums
+```
+
 #### How do you find a max value in a list/array if you can’t use any built-in functions?
 Iterate through the list once with a for cycle and check for each element if it is higher than the highest before. 
 If so, store the actual value in the max_value variable. In the end max_value will contain the max element.
@@ -103,7 +118,7 @@ It keeps track of the point to which each active subroutine (or method call) sho
 Subroutines may be nested to any level (recursive as a special case), hence the stack structure.
 
 #### What is “Stack overflow”?
-Stack owerflow is an error which occurs when a program attempts to use more space than is available on the call stack.
+Stack overflow is an error which occurs when a program attempts to use more space than is available on the call stack.
 
 #### What are the main parts of a function?
 ```Python
@@ -133,7 +148,7 @@ other methods:
 2. **keys()** *Returns the keys of the dictionary.* **dict.keys()**
 3. **values()** *Returns the values of the dictionary.* **dict.values()**
 4. **items()** *Returns both the keys and values of the dictionary.* **dict.items()**
-5. *Dictionaries can be sorted as well by key and by value as well (key=Lambda function is useful for this)*
+5. *Dictionaries can be sorted as well by key and by value as well (key=lambda function is useful for this)*
 
 #### What does it mean that an object is immutable in Python?
 These are of in-built types like int, float, bool, string, unicode, tuple.
@@ -337,7 +352,7 @@ If there is no return statement the value None will be assigned to the variable 
 3. **step out:** to step out the specific function
 
 #### How can you start to debug a program from a certain line using the debugger?
-1. Create breakpoint on desired line
+1. Create breakpoint on desired line (with red dot)
 2. Run the debugger
 
 ### Version control
@@ -362,6 +377,7 @@ It can be used to share code with colleagues by git push/pull commands and to ma
 A conflict arises when two separate branches have made edits to the same line in a file, or when a file has been deleted in one branch but edited in the other.
 
 #### Through what series of commands could you put a new file into a remote repository connected to your existing local repository?
+0. repository is created by cloning or init.
 1. *mv* - move file to that repo or create file with *touch <filename>*
 2. *git add <filename>* - add file to staging
 3. *git commit -m "commit message"* - create a commit with an appropriate message and add it to the local repo
@@ -428,7 +444,7 @@ Print an understandable error message or quit the program, if needed.
 
 #### What is the main goal of a retrospective meeting?
 The goal is to discuss among the team members how the work went during the last sprint, 
-what was good, what was bad, and what steps each member can take to improve the personal and team work.
+what was good, what was bad, and what steps each member can take to improve the personal and team work. (SMART objectives)
 
 
 ## Programming environment
@@ -436,8 +452,8 @@ what was good, what was bad, and what steps each member can take to improve the 
 ### Unix
 
 #### What is UNIX and what is Linux?
-Both of them are operating systems, but UNIX was earlier, it is running in CLI(Command Line Interface, meaning there is "only a command line, no mouse or graphical elements, at all)
-Linux (based on unix) is one or more steps forward, it enables applications and the users to access the devices on the computer to perform some specific function.
+Both of them are operating systems, but UNIX was earlier, it is running in CLI(Command Line Interface, meaning there is "only a command line, no mouse or graphical elements)
+Linux (based on unix, but open source) is one or more steps forward, it enables applications and the users to access the devices on the computer to perform some specific function.
 
 Usage:
 *Unix:* The UNIX can be used in internet servers, workstations, and PCs.
@@ -451,7 +467,7 @@ The shell is the *command interpreter* in an operating system such Linux, it is 
 Basically the Windows "System Administrator" equivalent for Linux.
 
 #### How do you access your personal files in Linux?
-"cd home/\<username>" in terminal 
+"cd" or "cd ~"in terminal or use the visual folders to search files 
 
 #### How can you install an application in Linux?
 You can use the software center, or you can use Linux package managers' commands, to install an application in the terminal.
@@ -466,9 +482,10 @@ The most well known ones are: DPKG, APT, RPM, YUM
 2. **ls:** list the files in your current directory
 3. **cd:** change your current directory
     1. *To navigate into the root directory, use* **cd /**
-    2. *To navigate to your home directory, use* **cd** *or* **cd\~**
+    2. *To navigate to your home directory, use* **cd** *or* **cd ~**
     3. *To navigate up one directory level, use* **cd ..**
     4. *To navigate to the previous directory (or back),* use **cd -**
+    5. *To navigate into a folder/directory, use* **cd /<directory_name>**
 
 #### What does the following commands do: mkdir, rm, cat, cp, touch?
 1. **mkdir:** Make directory
@@ -478,8 +495,8 @@ The most well known ones are: DPKG, APT, RPM, YUM
 5. **touch:** Create a new file or update its timestamp.
 
 #### How can you look up what does a command do in Linux if you have no internet connection?
-commandname -help or commandname -h
-man commandname
+<commandname> -help/--help or <commandname> -h
+man <commandname>
 
 #### What does the following commands do: head, tail, more, less?
 1. **head:** displays the first *ten* lines of a file, unless otherwise stated.
