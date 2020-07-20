@@ -37,7 +37,7 @@ Methods:
 #### Fibonacci sequences. Write a method (or pseudo code), that generates the Fibonacci sequences.
 Fn = F(n−1) + F(n−2)
 
-Fibonacci number outbut (only the #n number in the list):
+Fibonacci number output (only the #n number in the list):
 ```Python
 def Fibonacci(n):
     if n<0:
