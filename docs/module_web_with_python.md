@@ -698,62 +698,377 @@ ol {
 ```
 
 #### 61. What are UX and UI?
-__UI:__<br>
-*The "UI" in UI design stands for “user interface.” The user interface is the graphical layout of an application. It consists of the buttons users click on, the text they read, the images, sliders, text entry fields, and all the rest of the items the user interacts with. This includes screen layout, transitions, interface animations and every single micro-interaction. Any sort of visual element, interaction, or animation must all be designed.*
+UX design refers to the term “user experience design”, while UI stands for “user interface design”. <br>
 
-**UX:**<br>
-*It stands for “user experience.” A user’s experience of the app is determined by how they interact with it. User experience is determined by how easy or difficult it is to interact with the user interface elements that the UI designers have created.*
+__UI:__<br>
+The "UI" in UI design stands for “user interface”. The user interface is the graphical layout of an application. It consists of the buttons users click on, the text they read, the images, sliders, text entry fields, and all the rest of the items the user interacts with. This includes screen layout, transitions, interface animations and every single micro-interaction. Any sort of visual element, interaction, or animation must all be designed.
+
+__UX:__<br>
+In broad terms: UX Design encompasses any and all interactions between a potential or active customer and a company. <br>
+A user’s experience of the app is determined by how they interact with it. User experience is determined by how easy or difficult it is to interact with the user interface elements that the UI designers have created.
 
 #### 62. Please list some points that an application should fulfill to have good UX.
+- Meet the users' needs
+- Have a clear hierarchy
+- Consistency
+- Understand accessibility
+- Usability
+- Simplicity
+- Function over aesthetics
+- Leave room for user error (predict, then adapt)
+
 #### 63. What is XML, XSLT, DTD?
+*HTML is an application of SGML(Standard Generalized Markup Language).*
+
+__XML__ is a simplified subset of SGML. It stands for eXtensible Markup Language.<br>
+
+__DTD__ stands for Document Type Declaration. It is a set of instructions that states what tags are usable and what (re)action they create. Each browser has a DTD set in it's programming set by the browser companies. This is how some tags will work in only one type of browser or version. It has the tags stated in it's DTD. XML makes it possible to create unique tag sets by applying it's own DTD. This makes the DTD more compatable with more browsers.*<br>
+
+__XSLT__ stands for eXtensible Stylesheet Language Transformation. It is a strong verions of CSS that formats the XML page for viewing.
+
 #### 64. What is the difference between HTML and XML?
+1. HTML tags are predefined tags where as XML tags are user defined tags.
+2. HTML tags are limited number of tags where as XML tags are extensible.
+3. HTML tags are case insensitive where as XML tags are sensitive.
+4. HTML tags are meant for displaying the data but not for describing the data where as XML tags are meant for describing the data.
+5. XML mainly focuses on transfer of data while HTML is focused on presentation of the data.
+6. XML is content driven‭‬‬‬‬‬‬‬‬‬‬‬‬‬‬‬ whereas HTML is format driven‭‬‬‬‬‬‬‬.
+7. XML is strict for closing tag while HTML is not strict.
+
 
 ### Javascript
 
 #### 65. What is javascript?
+JavaScript is a scripting or programming language that allows you to implement complex features on web pages. <br>
+  - it can update and change both HTML and CSS
+  - it can calculate, manipulate and validate data.
+
 #### 66. When to use AJAX? Bring examples of its usage.
+__AJAX__ stands for "Asynchronous Javascript and XML".<br> 
+AJAX programming is used for exchanging data in the background without actually disturbing the user experience, and for rendering the access of data more efficiently and effectively.
+__Purposes:__ <br>
+    - Form validation
+    - Refresh content without rendering the whole DOM again
+    - Login Forms
+    - Auto-Complete(during search)
+    - Voting and Rating (forums)
+    - Updating page with user content
+    - Chat rooms and instant messaging
+    - Lightboxes instead of pop-ups
+    - Animations for better UX 
+    - Infinite scroll
+
 #### 67. What is DOM and how to manipulate it from Javascript?
+__DOM:__ Document Object Model of a webpage. The HTML DOM model is constructed as a tree of Objects.<br>
+  - Creating, removing or replacing an element
+  - Modifying an element's text and/or HTML content
+  - Getting an element content and working with it
+
+```Javascript
+/* Find an element in the DOM by id, class or tag name  */
+let element = document.querySelector('selector')
+
+/* Change the style of an element */
+element.style.background = "black";
+element.classList.add("black");
+
+/*Select an element and add an event listener to it for user interaction*/
+let btn = document.querySelector('button');
+btn.addEventListener('click', foo);
+
+/*Crearte new elements and add them to the DOM*/
+let newBlock = document.createElement('p');
+document.body.insertAdjacentHTML("beforeend", newBlock);
+
+/* Change or set the attribute of the selected element */
+let div = document.querySelector('div');
+div.setAttribute('contentEditable', '')
+```
+
 #### 68. What are events and how/why to use them in Javascript?
+Events are actions or occurrences that happen in the system you are programming, which the system tells you about so you can respond to them in some way if desired. For example, if the user selects a button on a webpage, you might want to respond to that action by displaying an information box. <br>
+Events can be triggered/fired by several different methods: mouse clicks, content load, keyboard action, change, drag, hover etc.<br>
+Each available event has an event handler, which is a block of code (usually a JavaScript function) that runs when the event fires. <br>
+The addEventListener() method is the most preferred way to add an event listener to an element in the DOM <br>
+The eventlistener then calls the event handler function when the event is fired/triggered.<br>
+Example: <br>
+```Javascript
+let btn = document.querySelector('button');
+btn.addEventListener('click',function(event) {
+    // function content which is executed when the event is fired
+  });
+```
+
 #### 69. What is event bubbling/capturing? How would you use it?
+__Event bubbling:__ When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors. <br>
+__Event capturing:__ Tthe event is first captured by the outermost element and propagated to the inner elements.
+
+*Note: most events bubble.*
+
 #### 70. What is JSON and how do we use it?
+JSON is short for *JavaScript Object Notation*, and is a way to store information in an organized, easy-to-access manner. <br>
+It is an open standard file format, and data interchange format (also language-indepentent), that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value). <br>
+It is a very common data format, with a diverse range of applications, such as serving as a replacement for XML in AJAX systems.<br>
+
+How to use it:<br>
+Used with key-value pairs in an object-like format.<br>
+Javascript usually handles json data in string format.<br>
+```Javascript
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 27,
+  "address": {
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021-3100"
+  },
+  "phoneNumbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    }
+  ],
+  "children": [],
+  "spouse": null
+}
+```
+
 
 ## Software engineering
 
 ### Version control
 
 #### 71. What type of branching strategy would you use?
+__Gitflow Workflow:__
+  - Code in master branch is deployable at all times
+  - Working on new features on a branch with descriptive naming
+  - Commit to that branch locally and regularly send your work to the same-named branch on the server (atomic commits)
+  - Open a pull request when you feel your changes are ready to be merged
+  - After the new feature is revised and approved, merge it into master
+  - Once your changes are merged and pushed to the master, you can and should delete the branch
+
 #### 72. What would you do if you find a bug on the production code (master branch)?
+I would report it to the project manager. And he/she would tell us how/who should fix it.<br>
+Alternatively, I would create a hotfix branch, locate and fix the bug, after testing merge it back to master.
+
 #### 73. How can you move changes from one branch to another in GIT?
+Make and checkout to a new branch will copy the actual state of the original branch where can be rollback or set back status. <br>
+Rebase or merge bring changes from another branch into the current one.
+```git
+git branch checkout <branchname>
+git merge <branchname>
+```
+
 #### 74. How does a VCS help with code reviews?
+Modern version control systems are designed to help address problems that teams face when collaborating.<br>
+Breaking down silos and embracing more perspectives and conversations can enable you and your team to deliver better software.<br>
+VCSes are designed to help multiple people collaboratively edit files. This makes sharing between multiple computers particularly easy. <br>
+With using pull requests the changes are highlighted (conflicts as well) and they can be commented, approved before merging into the main branch.<br>
+With proper roles, it is regulated who can change what in the codebase.<br>
+Restoring previous version or lost data is also easier.
+
 #### 75. What is your favorite git command? Why?
+`git log` - I can see the history of changes<br>
+`git push` - Usually means a bigger feature or a whole project was finished
+
 #### 76. What does remote/local mean in Git? 
+__remote__: Repository's server, online storage (GitHub).<br>
+__local__ - The repository's offline, local, on-disk stored version, which we make the changes on.
+
 
 ### DevOps
 
 #### 77. Why is it good to use a package manager software?
+- They prevent mixing incompatible files/libraries.
+- They establish a shared convention for managing libraries.(When new developers come onto your project, team, company, etc., they're likely to know the conventions of the package manager.
+- They give you a standard way of versioning and distributing your own dependencies and files that don't belong in your repository.
+- Some package managers provide additional features during installation.
+- They tend to centralize hosting and distribution.
+- Helps with complex dependency trees (and that can be managed downloading a dependency together with all its dependencies).
+- Packages contain metadata, such as the software's name, description of its purpose, version number, vendor, checksum, and a list of dependencies necessary for the software to run properly
+
 #### 78. Why is it good to use a virtual environment for a project?
+- Dependency Management: Prevent conflicts between dependencies of multiple projects.
+- Every project can have a single unique virtual environment with the specific packages.
+- Your main package directory does not get FLOODED with unnecessary packages
+
 
 ### Networks
 
 #### 79. What kind of HTTP status codes do you know?
-#### 80. What is a API?
+- 200 OK
+- 301 Moved Permanently
+- 302 Found
+- 400 Bad Request
+- 403 Forbidden
+- 404 Not Found
+- 405 Method Not Allowed
+- 408 Request Timeout
+- 418 I'm a teapot
+- 500 Internal Server Error
+- 504 Gateway Timeout
+
+#### 80. What is an API?
+API stands for Application Programming Interface.<br>
+An API is essentially a way for apps to borrow functionality and data from each other.<br>
+An API is code, that allows two applications to communicate with each other. One program can call another programs API to get access to data or functionality of the other program.<br>
+An API is the messenger that takes a request, tells a system what you want to do and then returns the response back to you.<br>
+Modern APIs adhere to standards (typically HTTP and REST), that are developer-friendly, easily accessible and understood broadly
+
 #### 81. What is REST API?
+Short for Representational state transfer.<br>
+Web services that conform to the REST architectural style, called RESTful Web services, provide interoperability between computer systems on the internet.<br>
+Modern APIs adhere to standards (typically HTTP and REST), that are developer-friendly, easily accessible and understood broadly.<br>
+A REST API is an application program interface (API) that uses HTTP requests to GET, PUT, POST and DELETE data.<br>
+Six guiding constraints define a RESTful system: <br>
+- Client-server architecture, 
+- Statelessness, 
+- Cacheability, 
+- Layered system, 
+- Code on demand (optional), 
+- Uniform interface
+
+
 #### 82. What is JSON? When to use?
+JSON is short for *JavaScript Object Notation*, and is a way to store information in an organized, easy-to-access manner. <br>
+It is an open standard file format, and data interchange format (also language-indepentent), that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value). <br>
+It is a very common data format, with a diverse range of applications, such as serving as a replacement for XML in AJAX systems.<br>
+Usage examples:
+- sending data between back-end and fron-end
+- storing data in the browser's storage
+- sending/receiving data from webAPIs
+
+
 #### 83. What is TCP/IP? What layers does it define, what are they responsible for?
+__Transmission Control Protocol/Internet Protocol (TCP/IP)__ is the language a computer uses to access the internet.<br>
+TCP provides reliable, ordered, and error-checked delivery of a stream of octets (bytes) between applications running on hosts communicating via an IP network. <br>
+Major internet applications such as the World Wide Web, email, remote administration, and file transfer rely on TCP, which is part of the Transport Layer of the TCP/IP suite.<br>
+It consists of a suite of protocols designed to establish a network of networks to provide a host with access to the internet.<br>
+*(a set of rules to allow communication to each other)* <br>
+TCP is connection-oriented, and a connection between client and server is established before data can be sent.
+
+Layers:
+- __Application Layer:__ Application layer interacts with an application program, which is closest to the end-user. Example of the application layer is an application such as file transfer, email, remote login, etc. (protocols: HTTP, SMTP, POP, Ping, FTP)<br>
+- __Transport Layer:__ Transport layer builds on the network layer in order to provide data transport from a process on a source system machine to a process on a destination system. (protocols: TCP (reliable), UDP (not reliable))<br>
+- __Internet Layer:__ An internet layer is a second layer of the TCP/IP model. It is also known as a network layer. The main work of this layer is to send the packets from any network, and any computer still they reach the destination irrespective of the route they take. (protocols: IP)<br>
+- __Network Interface:__ Also called a network access layer. It helps to define details of how data should be sent using the network. (protocols: Ethernet, ATM, PPP)
+
 #### 84. What’s the difference between TCP and UDP?
+TCP (Transmission Control Protocol) is connection oriented, whereas UDP (User Datagram Protocol) is connection-less.<br>
+This means that TCP tracks all data sent, requiring acknowledgment for each octet (generally). UDP does not use acknowledgments at all, and is usually used for protocols where a few lost datagrams do not matter.
+
 #### 85. How does an HTTP Request look like? What are the most relevant HTTP header fields?
+A simple request message from a client computer consists of the following components:<br>
+  - A request line to get a required resource, for example a request GET /content/page1.html is requesting a resource called /content/page1.html from the server.
+  - Headers (Example – Accept-Language: EN, others: General|Request|Entity|Authorization).
+  - An empty line.
+  - A message body which is optional.
+
+*All the lines should end with a carriage return and line feed. The empty line should only contains carriage return and line feed without any spaces.* <br>
+*Most used methods: GET, POST, PUT, DELETE.*
+
 #### 86. How does an HTTP Response look like? What are the most relevant HTTP header fields?
+A simple response from the server contains the following components:
+  - HTTP Status Code (For example HTTP/1.1 301 Moved Permanently, means the requested resource was permanently moved and redirecting to some other resource).
+  - Headers (Example – Content-Type: text/html; charset=utf-8 others: Connection|200 OK|Date|Server|Set-Cookie)
+  - An empty line.
+  - A message body which is optional.
+
 #### 87. What is DNS? How does it work?
+Domain Name System (DNS) is the Internet's equivalent of a phone book. It maintains a directory of domain names and translates them to Internet Protocol (IP) addresses.
+
 #### 88. What is a web server?
+__Hardver side:__ On the hardware side, a web server is a computer that stores web server software and a website's component files. (for example, HTML documents, images, CSS stylesheets, and JavaScript files) A web server connects to the Internet and supports physical data interchange with other devices connected to the web.<br>
+__Software side:__ On the software side, a web server includes several parts that control how web users access hosted files. At a minimum, this is an HTTP server. An HTTP server is software that understands URLs (web addresses) and HTTP (the protocol your browser uses to view webpages). An HTTP server can be accessed through the domain names of the websites it stores, and it delivers the content of these hosted websites to the end user's device.<br>
+
+*At the most basic level, whenever a browser needs a file that is hosted on a web server, the browser requests the file via HTTP. When the request reaches the correct (hardware) web server, the (software) HTTP server accepts the request, finds the requested document, and sends it back to the browser, also through HTTP. (If the server doesn't find the requested document, it returns a 404 response instead.)*
+
+*Note: can be static or dynamic.*
+
 #### 89. Explain the client-server architecture.
+Client–server model is a distributed application structure that partitions tasks or workloads between the providers of a resource or service, called servers, and service requesters, called clients.<br>
+It is an architecture of a computer network in which many clients (remote processors) request and receive service from a centralized server (host computer).<br>
+Client computers provide an interface to allow a computer user to request services of the server and to display the results the server returns.
+
 #### 90. What would you use a session for?
+*A session is a group of user interactions with your website that take place within a given time frame. For example a single session can contain multiple page views, events, social interactions, and ecommerce transactions.* <br>
+
+The purpose for __session__ is to store data that you (as the web application developer) would like to have preserved across page loads.<br>
+Thus, you can set flags in your login script such as *logged_in* to check if the user is logged in, and on any other page check `session['logged_in'] == true`, instead of querying for that information.
+  - Sessions use a cookie as a key of sorts, to associate with the data that is stored on the server side.
+  - Session variables will be expired when users close the browser, or after a set period of time.
+
 #### 91. What would you use a cookie for?
+A cookie is a small piece of data stored on the user's computer by the web browser while browsing a website.<br>
+You can save settings to cookie for the websites between visits, so its gonna remember your previous preferences.<br>
+Authentication cookies are the most common method used by web servers to know whether the user is logged in or not. <br>
+Not very safe, since hackers can reach and get your information.<br>
+Expiration can be set.
+
 
 ## Software Development Methodologies
 
 #### 92. What kind of software development methodologies do you know? What are the main features of these?
+1. __Waterfall development methodology:__<br>
+`-> Requirements -> Desing -> Implementation -> Verification -> Maintanance`<br> 
+It’s a rigid linear model that consists of sequential phases (see above) in which distinct goals are accomplished.<br>
+Each phase must be completed before the next phase can start, and traditionally there is no process for going back to modify the project or direction.
+
+2. __Agile:__<br>
+It is an adaptive approach which is able to respond to the changing requirements of the clients. Direct communication and feedback from customer.
+    __Mmethodology:__<br>
+    - Requirement/Features/User stories/Product Backlog
+    - Scrum Team(with lead)
+    - Sprint Planning(relative time)
+    - Sprints 1-4 Weeks Duration
+    - Production deployment
+    - Done Checklist
+    - Sprint Retrospective
+    - Product review(customer input)
+    - Potential Product Increment
+
 #### 93. What are the SCRUM roles?
+1. __Product Owner:__ serves as an interface between the team and other involved parties (stakeholders).
+2. __Scrum Master:__ does not interfere in the decisions of the team regarding specifically the development, but rather is there for the team as an advisor. Helps to remove impediments, protects the Team from outside interference, and helps the Team to adopt Agile development practices.
+3. __Development Team:__ it is a collection of individuals working together to develop and deliver the requested and committed product increments. It comprises of cross-functional members who are capable of achieving the sprint goals.
+
 #### 94. What are the SCRUM ceremonies?
+- Sprint Backlog Refinement
+- Sprint Planning Meeting
+- Daily Stand-up Meeting
+- Sprint Review Meeting
+- Sprint Retrospective Meeting
+
 #### 95. What are the SCRUM artifacts?
+Scrum Artifacts provide key information that the Scrum Team and the stakeholders need to be aware of for understanding the product under development, the activities being planned, and the activities done in the project. <br>
+
+Most common:<br>
+- Product Vision
+- Sprint Goal
+- Product Backlog
+- Sprint Backlog
+- Definition of Done
+- Burn-Down Chart
+- Increment
+
 #### 96. What is the main goal of a retrospective meeting?
+To reflect on their previous Sprint and to figure out how to improve as a team by asking – what went well, what did not and what can be improved. It allows the team to focus on its overall performance and identify strategies for continuous improvement.<br>
+Usually __S.M.A.R.T goals__ are expected: Specific (simple, sensible, significant), Measurable (meaningful, motivating), Achievable (agreed, attainable)<br>
+Relevant (reasonable, realistic and resourced, results-based), Time bound (time-based, time limited, time/cost limited, timely, time-sensitive).
+
 #### 97. Explain, when would you recommend to use the waterfall methodology?
+Use Waterfall when:
+- Requirements are clear and fixed that may not change.
+- There are no ambiguous requirements (no confusion).
+- The project is short and cast is low.
+- It is good to use this model when the technology is well understood.
+- It is all you know and you have no support for change,
+- Risk is zero or minimum.
+- You focus your performance measures on delivery date and budget.
