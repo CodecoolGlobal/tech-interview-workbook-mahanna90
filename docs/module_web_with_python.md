@@ -37,7 +37,9 @@ Harmful injections can be handled with exceptions as well.<br>
 An SQL injection is a computer attack in which malicious code is inserted into a poorly-designed application and then passed to the backend database.<br>
 You can prevent SQL Injection vulnerabilities in web applications by utilizing parameterized database queries with bound, typed parameters and careful use of parameterized stored procedures in the database.<br>
 Example: <br>
-`SELECT title FROM boards WHERE id = %(board_id)s""", {'board_id': board_id})`
+```SQL
+SELECT title FROM boards WHERE id = %(board_id)s""", {'board_id': board_id})
+```
 
 #### 7. What is XSS? How to protect an application against it?
 Cross-site Scripting (XSS) is a client-side code injection attack.<br>
@@ -52,8 +54,7 @@ Examples for protection: <br>
 #### 8. How to properly store passwords?
 You have to hash them(salting them is also recommended) and then store the outcome in a database.<br>
 Example for hashing:<br>
-```
-Python
+```Python
 def hash_password(plain_text_password):
     hashed_bytes = bcrypt.hashpw(plain_text_password.encode('utf-8'), bcrypt.gensalt())
     return hashed_bytes.decode('utf-8')
@@ -74,8 +75,7 @@ Decryption is conversion of encrypted data into its original form. It is general
 #### 11. What is hashing?
 A hash function is where a computer takes an input of any length and content (e.g. letters, numbers, and symbols) and uses a mathematical formula to chop it, mix it up, and produce an output of a specific length. A hashed password cannot be restored to original, but there are algorithms which can guess the original value by comparing it to often used passwords (brute-force attack).
 Example for hash function:
-```
-Python
+```Python
 def hash_password(plain_text_password):
     hashed_bytes = bcrypt.hashpw(plain_text_password.encode('utf-8'), bcrypt.gensalt())
     return hashed_bytes.decode('utf-8')
@@ -132,8 +132,7 @@ def bubble_sort():
 
 #### 18. Explain the process of finding the maximum and minimum value in a list of numbers!
 __Method 1__: iterate through the list and compare each number to the previously highest or lowest (which is saved each time into a variable). If the current value is higher/lower than the previously saved max/min, the temporary value is changed to the current value.
-```
-Python
+```Python
 max = lst[0] 
 for x in lst: 
     if x > max: 
@@ -144,8 +143,7 @@ __Method 2__: sort the list into desc or asc order with a bubble sort function f
 
 #### 19. Explain the process of calculating the average value in an array of numbers!
 Adding each element's value together and dividing it with the the total element count.
-```
-Javascript
+```Javascript
 const average = list => list.reduce((prev, curr) => prev + curr) / list.length;
 
 const list = [0, 10, 20, 30]
@@ -161,61 +159,551 @@ Similarly, __Space complexity__ of an algorithm quantifies the amount of space o
 
 #### 21. Explain the process of calculating the average value in a list of numbers!
 Adding each element's value together and dividing it with the the total element count.
-`lst_avg = sum(lst) / len(lst)`
+```Python
+lst_avg = sum(lst) / len(lst)
+```
 
 ### Procedural
 #### 22. How the CASE condition works in SQL?
-
+The __CASE__ statement goes through conditions and returns a value when the first condition is met (like an IF-THEN-ELSE statement). <br>
+So, once a condition is true, it will stop reading and return the result. If no conditions are true, it returns the value in the ELSE clause.<br>
+If there is no ELSE part and no conditions are true, it returns NULL.<br>
+Example: <br>
+```SQL
+SELECT OrderID, Quantity,
+CASE
+    WHEN Quantity > 30 THEN 'The quantity is greater than 30'
+    WHEN Quantity = 30 THEN 'The quantity is 30'
+    ELSE 'The quantity is under 30'
+END AS QuantityText
+FROM OrderDetails;
+```
 
 #### 23. How the switch-case condition works in JavaScript?
+The switch statement is used to perform different actions based on different conditions.<br>
+Use the switch statement to select one of many code blocks to be executed.
+Example: <br>
+```Javascript
+switch(expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+    // code block
+}
+```
+*Note: If we omit the break statement, the next case will be executed even if the evaluation does not match the case.*
+
 #### 24. How to achieve a switch-case-like structure in Python?
+The Pythonic way to implement switch statement is to use the powerful dictionary mappings, also known as associative arrays, that provide simple one-to-one key-value mappings.<br>
+```Python
+def switch_demo(argument):
+   switcher = {
+       1: "January",
+       2: "February",
+       3: "March",
+       4: "April",
+       5: "May",
+       6: "June",
+       7: "July",
+       8: "August",
+       9: "September",
+       10: "October",
+       11: "November",
+       12: "December"
+   }
+   print(switcher.get(argument, "Invalid month")) # Invalid month is default if number not found
+```
+
 #### 25. Explain variable scoping in Python!
+Scope: the part of a program where a variable is accessible.<br>
+In Python the __LEGB__ rule is used to decide the order in which the namespaces are to be searched for scope resolution.<br>
+
+*Four different scopes (LEGB): local, enclosing, global, and built-in (in hierarchical order)*
+1. **Local:** Defined variable within a function, its scope lies only within the function. It is accessible from the point at which it is defined until the end of the function and exists for as long as the function is executing.
+2. **Enclosing:** Defined inside enclosing functions(Nested functions' inner parts)
+3. **Global:** Whenever a variable is defined outside any function, it becomes a global variable, and its scope is anywhere within the program. 
+4. **Built-in:** All the special reserved keywords fall under this scope. We can call the keywords anywhere within our program without having to define them before use.
+
 #### 26. What’s the difference between const and var in JavaScript?
+Before 2015, using the __var__ keyword was the only way to declare a JavaScript variable.<br>
+The 2015 version of JavaScript (ES6 - ECMAScript 2015) allows the use of the __const__ keyword to define a variable that cannot be reassigned, <br>
+and the __let__ keyword to define a variable with restricted scope.
+
 #### 27. How the list comprehension looks like in Python?
+*List Comprehension* is an elegant and compressed way of defining and creating a list. List comprehension allows us to create a list using for loops in one line.
+```Python
+  values = [ expression for value in collection <if condition> ]
+```
+
+```Python
+  a_dict = {key: value  for key, value in zip(list1, list2) if clause}
+```
+
 #### 28. How the “ternary expression” looks like in Python?
+Ternary expressions allow to test a condition in a single line replacing the multiline if-else making the code compact.<br>
+`value_if_true if condition else value_if_false` 
+
+```Python
+a, b = 10, 20
+# Copy value of a in min if a < b else copy b 
+min = a if a < b else b 
+```
+
 #### 29. How the ternary expression looks like in JavaScript?
+`condition ? exprIfTrue : exprIfFalse`
+
+Example: <br>
+```Javascript
+var age = 26;
+var beverage = (age >= 21) ? "Beer" : "Juice";
+console.log(beverage); // "Beer"
+```
+
 #### 30. How to import a function from another module in Python?
+```Python
+from file_name import func_1, func_2
+from Flask import render_template
+```
+
 #### 31. How to import a function from another module in JavaScript?
+```Javascript
+// in source file
+export function myFunc{};
+
+//in target file
+import {myFunc} from "my-module.js";
+import "my-module.js";
+import {reallyReallyLongModuleMemberName as shortName} from "my-module.js";
+```
+
 
 ### Functional
 #### 32. What is recursion?
+Recursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem.<br>
+Such problems can generally be solved by iteration, but this needs to identify and index the smaller instances at programming time. <br>
+Recursion solves such recursive problems by using functions that call themselves from within their own code. 
+*Other uses: copying or deleting a folder in a recursive way will delete/copy the sub folders too.*
+
 #### 33. Write a recursive function which calculates the Fibonacci numbers!
+Python example:
+```Python
+def fibonacci(n):  
+    # Taking 1st two fibonacci nubers as 0 and 1  
+    FibArray = [0, 1]  
+      
+    while len(FibArray) < n + 1:  
+        FibArray.append(0)  
+      
+    if n <= 1:  
+        return n  
+    else:  
+        if FibArray[n - 1] == 0:  
+            FibArray[n - 1] = fibonacci(n - 1)  
+  
+        if FibArray[n - 2] == 0:  
+            FibArray[n - 2] = fibonacci(n - 2)  
+              
+    FibArray[n] = FibArray[n - 2] + FibArray[n - 1]  
+    return FibArray[n]  
+      
+print(fibonacci(9))  
+```
+
+Javascript example:
+```Javascript
+// for nth number
+function fibonacci(limit, a=0, b=1) {
+    if (b >= limit) {
+        return
+    }
+    let c = a + b;
+    console.log(c);
+    return fibonacci(limit, b, c)
+}
+fibo(30);
+
+// for array
+function fib(n) {
+  if (n == 0) return [0]
+  if (n == 1) return [0, 1]
+  const arr = fib(n - 1)
+  return [...arr, arr[n-1] + arr[n-2]]
+}
+console.log(fib(15))
+```
+
+
 #### 34. How to store a function in a variable in Python?
+```Python
+def Testing(self):
+    pass
+x = Test()
+```
+OR
+```Python
+def my_func():
+    print("hello from function one")
+my_variable = my_func
+```
+
 #### 35. List the ways of defining a callable logical unit in JavaScript!
+A callable object is a data structure that behaves as both an object and a function.<br>
+__Arrow function__:<br>
+```Javascript
+const foo = (arg1, arg2) => {
+    // function content
+};
+```
+__Function declaration__ (const + arrow function):
+```Javascript
+const foo = (arg1, arg2) => {
+        // function content
+    };
+```
+__Before ES6__:
+```Javascript
+var foo = function (arg1, arg2) {
+        // function content
+    };
+```
+__Function in object literal__:
+```Javascript
+var obj = {
+        myMethod: function (arg1, arg2) {
+            ...
+        }
+    };
+
+let obj = {
+        myMethod(arg1, arg2) {
+            ...
+        }
+    };
+```
+
 #### 36. What is an event listener? How to attach one?
+An event listener is a procedure or function in a computer program that waits for an event to occur. <br>
+Examples of an event are the user clicking or moving the mouse, pressing a key on the keyboard, disk I/O, network activity, or an internal timer or interrupt. The listener is programmed to react to an input or signal by calling the event's handler.<br>
+Example:<br>
+```Javascript
+document.getElementById("myBtn").addEventListener("click", myFunction);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello World";
+}
+```
+
 #### 37. How to trigger an event in JavaScript?
+Events can be triggered by:
+- mouse click (click, context menu)
+- keyboard actions (keyup, keydown, keypress)
+- content load (DOMContentLoaded, onload)
+- change (onchange for input fields for eample)
+
 #### 38. What is a callback function? Tell some examples of its usage.
+A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action. <br>
+Callbacks are often used to continue code execution after an asynchronous operation has completed — these are called asynchronous callbacks. A good example is the callback functions executed inside a __.then()__ block chained onto the end of a promise after that promise fulfills or rejects. This structure is used in many modern web APIs, such as __fetch()__.
+Example: <br>
+```Javascript
+function doHomework(subject, callback) {
+ alert(`Starting my ${subject} homework.`);
+ callback();
+}
+function alertFinished(){
+ alert('Finished my homework');
+}
+doHomework('math', alertFinished);
+```
+
 #### 39. What is a Python decorator? How does it work? Tell some examples of its usage.
+Decorators dynamically alter the functionality of a function, method, or class without having to directly use subclasses or change the source code of the function being decorated.<br>
+Decorators allow us to wrap another function in order to extend the behavior of wrapped function, without permanently modifying it.<br>
+In Decorators, functions are taken as the argument into another function and then called inside the wrapper function.<br>
+Example: <br>
+```Python
+def my_decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+@my_decorator
+def say_whee():
+    print("Whee!")
+```
+
 #### 40. What is the difference between synchronous and asynchronous execution?
+When you execute something synchronously, you wait for it to finish before moving on to another task. When you execute something asynchronously, you can move on to another task before it finishes. <br>
+__Synchronous__ operations block instructions until the task is completed, while __asynchronous operations__ can execute without blocking other operations. <br>
+Asynchronous operations are generally completed by firing an event or by calling a provided callback function.<br>
+During synchronous execution the code is executed in a linear order.<br>
+During asynchronous execution when the webAPI completes a time consuming process the result is added to the Callback Queue.
+The Event Loop waits for the Callstack to complete the loaded work. Once the Event Loop notices the Callstack is clear it will add work to the Callstack from the Callback Queue.<br>
+Examples for javascript asynch functions: setInterval, setTimeout, .fetch(), promises
+
 
 ## Programming languages
 
 ### SQL
 
 #### 41. How can you connect your application to a database server? What are the possible ways?
+We need a connection string and a connection object from the database provider to set a session with the database server. For phyton we can use the psycopg2 module api's to connect an application with psql database. To create a connection we need to set the environment variables like username, password, host and db name.
+
+__Everything On One Server__:<br>
+*The entire environment resides on a single server. For a typical web application, that would include the web server, application server, and database server.*
+
+__Separate Database Server__:<br>
+*The database management system (DBMS) can be separated from the rest of the environment to eliminate the resource contention between the application and the database, and to increase security.*
+
+Example for Python db connection function: <br>
+```Python
+def get_connection_string():
+    user_name = os.environ.get('PSQL_USER_NAME')
+    password = os.environ.get('PSQL_PASSWORD')
+    host = os.environ.get('PSQL_HOST')
+    database_name = os.environ.get('PSQL_DB_NAME')
+
+    env_variables_defined = user_name and password and host and database_name
+
+    if env_variables_defined:
+        return 'postgresql://{user_name}:{password}@{host}/{database_name}'.format(
+            user_name=user_name,
+            password=password,
+            host=host,
+            database_name=database_name
+        )
+    else:
+        raise KeyError('Some necessary environment variable(s) are not defined')
+
+def open_database():
+    try:
+        connection_string = get_connection_string()
+        connection = psycopg2.connect(connection_string)
+        connection.autocommit = True
+    except psycopg2.DatabaseError as exception:
+        print('Database connection problem')
+        raise exception
+    return connection
+```
+
 #### 42. When do you use the DISTINCT keyword in SQL?
+DISTINCT clause is used in the SELECT statement to remove duplicate rows from a result set.
+Example: <br>
+```SQL
+SELECT DISTINCT Country FROM Customers;
+```
+
 #### 43. Talk about the behavior/goal of these base SQL clauses: WHERE, GROUP BY, HAVING, ORDER BY?
+- __WHERE__:<br>
+    It's used to "filter" the data based on conditions. It is used to extract only those records that fulfill a specified condition.
+- __GROUP BY__:<br>
+    The GROUP BY statement groups rows that have the same values into summary rows, like "find the number of customers in each country".<br>
+    It is often used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) to group the result-set by one or more columns.
+- __HAVING__:<br>
+    HAVING is the same as WHERE. The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
+- __ORDER BY__:<br>
+    The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+
 #### 44. What are aggregate functions in SQL? Give 3 examples.
+1. **COUNT()**: Returns the number of rows that matches a specified criterion.
+2. **MAX()**: Returns the highest value of the selected column.
+3. **MIN()**: Returns the smallest value of the selected column.
+4. **SUM()**: Returns the total sum of a numeric column.
+5. **AVG()**: Returns the average value of a numeric column.
+
 #### 45. What kind of JOIN types do you know in SQL? Could you give examples?
+__Inner Join:__<br>
+Returns records at the intersection of the two tables.
+```SQL
+select first_name, last_name, order_date, order_amount
+from customers c
+inner join orders o
+on c.customer_id = o.customer_id
+```
+
+__Left Join:__<br>
+A left join returns all records from table A and any matching records from table B.
+```SQL
+select first_name, last_name, order_date, order_amount
+from customers c
+left join orders o
+on c.customer_id = o.customer_id
+```
+
+__Right Join:__<br>
+Right join is a mirror version of the left join and allows to get a list of all orders, appended with customer information.
+
+__Full Join:__<br>
+For a list of all records from both tables, we can use a full join.
+
 #### 46. What are the constraints in sql?
+SQL constraints are used to specify rules for data in a table.<br>
+__NOT NULL__ ensures that a column cannot have a NULL value<br>
+__UNIQUE__ ensures that all values in a column are different<br>
+__PRIMARY KEY__ is a combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table<br>
+__FOREIGN KEY__ uniquely identifies a row/record in another table<br>
+__DEFAULT__  sets a default value for a column when no value is specified<br>
+
 #### 47. What is a cursor in SQL? Why would you use one?
+A cursor is a temporary work area created in the system memory when a SQL statement is executed.<br> 
+A cursor contains information on a select statement and the rows of data accessed by it.<br>
+This temporary work area is used to store the data retrieved from the database, and manipulate this data. <br>
+A cursor can hold more than one row, but can process only one row at a time. The set of rows the cursor holds is called the active set.<br>
+
 #### 48. What are database indexes? When to use?
+A database index is a data structure that improves the speed of data retrieval operations on a database table at the cost of additional writes and storage space to maintain the index data structure. Indexes are used to quickly locate data without having to search every row in a database table.
+
 #### 49. What are database transactions? When to use?
+A transaction is a unit of work that you want to treat as "a whole." It has to either happen in full or not at all.<br>
+A transaction generally represents any change in a database. <br>
+Main purposes:<br>
+1. To provide reliable units of work that allow correct recovery from failures and keep a database consistent even in cases of system failure, when execution stops (completely or partially) and many operations upon a database remain uncompleted, with unclear status.<br>
+2. To provide isolation between programs accessing a database concurrently. If this isolation is not provided, the programs' outcomes are possibly erroneous.<br>
+
+*A classical example is transferring money from one bank account to another. To do that you have to first withdraw the amount from the source account, and then deposit it to the destination account. The operation has to succeed in full. If you stop halfway, the money will be lost, and that is Very Bad.*<br>
+*In modern databases transactions also do some other things - like ensure that you can't access data that another person has written halfway. But the basic idea is the same - transactions are there to ensure, that no matter what happens, the data you work with will be in a sensible state. They guarantee that there will NOT be a situation where money is withdrawn from one account, but not deposited to another.*
+
 #### 50. What kind of database relations do you know? How to define them?
+1. __One-to-One:__<br>
+A row in table A can have only one matching row in table B, and vice versa.
+
+2. __One-to-Many (or Many-to-One):__<br>
+This is the most common relationship type. In this type of relationship,<br>
+a row in table A can have many matching rows in table B,<br>
+but a row in table B can have only one matching row in table A.<br>
+(Each customer can only be assigned one city. One city can be assigned to many customers.)
+
+3. __Many-to-Many:__<br>
+A many-to-many relationship could be thought of as two one-to-many relationships,<br>
+linked by an intermediary table( “cross-reference table”).<br>
+(So in order to create a many-to-many relationship between the Customers table and the Products table,
+we created a "switch" table called Orders.)
+
 #### 51. You have a table with an “address” field which contains data like “3525, Miskolc, Régiposta 9.” (postcode, city, street name and address). How would you query all records related to Miskolc?
+```SQL
+SELECT * FROM table
+WHERE address LIKE '%Miskolc%';
+```
+
 #### 52. How would you keep track of what kind of data has changed after an UPDATE or DELETE operation in a table?
+I would create a person_log table and insert a row into person_log table whenever the table/s row/s get updated/deletes/added.
+
 
 ### HTML & CSS
 
 #### 53. What’s the difference between XML, XHTML and HTML?
+Both HTML and XML are markup languages, which represent text data in proper format using tags. However they are used for completely different purposes.
+
+Similarities between HTML and XML:
+1. *Both are languages of web.*
+2. *Both are markup languages.*
+3. *Both are originated from SGML. "Standardized General Markup Language".*
+4. *Tags are basic building blocks of both HTML and XML documents.*
+
+Differences between HTML and XML:
+1. *HTML tags are predefined tags where as XML tags are user defined tags.*
+2. *HTML tags are limited number of tags where as XML tags are extensible.*
+3. *HTML tags are case insensitive where as XML tags are sensitive.*
+4. *HTML tags are meant for displaying the data but not for describing the data where as XML tags are meant for describing the data.*
+5. *XML mainly focuses on transfer of data while HTML is focused on presentation of the data.*
+6. *XML is content driven‭‬‬‬‬‬‬‬‬‬‬‬‬‬‬‬ whereas HTML is format driven‭‬‬‬‬‬‬‬.*
+
+XHTML:
+1. *XHTML stands for EXtensible HyperText Markup Language*
+2. *XHTML is almost identical to HTML*
+3. *XHTML is stricter than HTML*
+4. *XHTML is HTML defined as an XML application*
+
 #### 54. How to include a JavaScript file in a webpage?
+Using the script tag in html file:
+```HTML
+<script type="text/javascript" src="path-to-javascript-file.js"></script>
+```
+*Instead of providing the JS source file, it is possible to write JS code directly into the SCRIPT tag.*
+
 #### 55. How to include a CSS file in a webpage?
+Using the link tag in html file:
+```HTML
+<link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+```
+
 #### 56. How to select an element using its id in CSS?
+Using hashtag(#) + the element id name:
+```CSS
+#elementIdName {
+    /*code;*/
+}
+```
+
 #### 57. How to select elements using their class in CSS?
+Using dot(.) + the element class name:
+```CSS
+.elementClassName {
+    /*code;*/
+}
+```
+
 #### 58. How to select elements which have the ‘alpha’ and ‘beta’ classes in CSS?
+Using both classes without separation:
+```CSS
+.alpha.beta{
+    /*code;*/
+}
+```
+
 #### 59. How to select all list items in all ordered lists on the page in CSS?
+Using the ordered tag which is < ol >:
+```CSS
+ol {
+ /*code;*/
+}
+```
+
 #### 60. How to select elements using their attributes in CSS?
+```CSS
+/*We can reach differently*/
+
+[data-value] {
+  /* Attribute exists */
+}
+
+[data-value="foo"] {
+  /* Attribute has this exact value */
+}
+
+[data-value*="foo"] {
+  /* Attribute value contains this value somewhere in it */
+}
+
+[data-value~="foo"] {
+  /* Attribute has this value in a space-separated list somewhere */
+}
+
+[data-value^="foo"] {
+  /* Attribute value starts with this */
+}
+
+[data-value|="foo"] {
+  /* Attribute value starts with this in a dash-separated list */
+}
+
+[data-value$="foo"] {
+  /* Attribute value ends with this */
+}
+```
+
 #### 61. What are UX and UI?
+__UI:__<br>
+*The "UI" in UI design stands for “user interface.” The user interface is the graphical layout of an application. It consists of the buttons users click on, the text they read, the images, sliders, text entry fields, and all the rest of the items the user interacts with. This includes screen layout, transitions, interface animations and every single micro-interaction. Any sort of visual element, interaction, or animation must all be designed.*
+
+**UX:**<br>
+*It stands for “user experience.” A user’s experience of the app is determined by how they interact with it. User experience is determined by how easy or difficult it is to interact with the user interface elements that the UI designers have created.*
+
 #### 62. Please list some points that an application should fulfill to have good UX.
 #### 63. What is XML, XSLT, DTD?
 #### 64. What is the difference between HTML and XML?
