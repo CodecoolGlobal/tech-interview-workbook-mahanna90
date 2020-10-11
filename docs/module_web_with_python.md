@@ -745,7 +745,7 @@ JavaScript is a scripting or programming language that allows you to implement c
 
 #### 66. When to use AJAX? Bring examples of its usage.
 __AJAX__ stands for "Asynchronous Javascript and XML".<br> 
-AJAX programming is used for exchanging data in the background without actually disturbing the user experience, and for rendering the access of data more efficiently and effectively.
+AJAX programming is used for exchanging data in the background without actually disturbing the user experience, and for rendering the access of data more efficiently and effectively. <br>
 __Purposes:__ <br>
     - Form validation
     - Refresh content without rendering the whole DOM again
@@ -1022,8 +1022,8 @@ It’s a rigid linear model that consists of sequential phases (see above) in wh
 Each phase must be completed before the next phase can start, and traditionally there is no process for going back to modify the project or direction.
 
 2. __Agile:__<br>
-It is an adaptive approach which is able to respond to the changing requirements of the clients. Direct communication and feedback from customer.
-    __Mmethodology:__<br>
+It is an adaptive approach which is able to respond to the changing requirements of the clients. Direct communication and feedback from customer. <br>
+    __Methodology:__<br>
     - Requirement/Features/User stories/Product Backlog
     - Scrum Team(with lead)
     - Sprint Planning(relative time)
