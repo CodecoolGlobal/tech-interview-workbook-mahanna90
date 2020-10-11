@@ -53,6 +53,7 @@ Examples for protection: <br>
 You have to hash them(salting them is also recommended) and then store the outcome in a database.<br>
 Example for hashing:<br>
 ```
+Python
 def hash_password(plain_text_password):
     hashed_bytes = bcrypt.hashpw(plain_text_password.encode('utf-8'), bcrypt.gensalt())
     return hashed_bytes.decode('utf-8')
@@ -74,6 +75,7 @@ Decryption is conversion of encrypted data into its original form. It is general
 A hash function is where a computer takes an input of any length and content (e.g. letters, numbers, and symbols) and uses a mathematical formula to chop it, mix it up, and produce an output of a specific length. A hashed password cannot be restored to original, but there are algorithms which can guess the original value by comparing it to often used passwords (brute-force attack).
 Example for hash function:
 ```
+Python
 def hash_password(plain_text_password):
     hashed_bytes = bcrypt.hashpw(plain_text_password.encode('utf-8'), bcrypt.gensalt())
     return hashed_bytes.decode('utf-8')
@@ -131,6 +133,7 @@ def bubble_sort():
 #### 18. Explain the process of finding the maximum and minimum value in a list of numbers!
 __Method 1__: iterate through the list and compare each number to the previously highest or lowest (which is saved each time into a variable). If the current value is higher/lower than the previously saved max/min, the temporary value is changed to the current value.
 ```
+Python
 max = lst[0] 
 for x in lst: 
     if x > max: 
@@ -142,6 +145,7 @@ __Method 2__: sort the list into desc or asc order with a bubble sort function f
 #### 19. Explain the process of calculating the average value in an array of numbers!
 Adding each element's value together and dividing it with the the total element count.
 ```
+Javascript
 const average = list => list.reduce((prev, curr) => prev + curr) / list.length;
 
 const list = [0, 10, 20, 30]
